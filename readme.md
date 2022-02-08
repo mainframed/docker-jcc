@@ -13,7 +13,7 @@ run `docker build -t jcc .`
 The docker container has a volume setup at `/project`. To compile your C code located in `project/test.c` run
 
 ```bash
-docker run -it -v $(pwd)/project:/code jcc jccc -I/jcc/include -o test.c
+docker run -it -v $(pwd)/project:/project jcc jccc -I/jcc/include -o test.c
 ```
 
 **Note**: This uses the bash script `jccc` since jcc does not allow you to control the object output folder.
