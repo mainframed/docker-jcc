@@ -1,6 +1,6 @@
 # JCC Docker Container
 
-This container is based on debian buster (10). It uses Paul Winters `jcc` which can be used to compile C programs for use on IBM mainframes.
+This container is based on debian buster (10). It uses Jason Paul Winters `jcc` which can be used to compile C programs for use on IBM mainframes.
 
 The compiler is available here: https://github.com/mvslovers/jcc
 
