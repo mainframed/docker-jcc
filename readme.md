@@ -56,3 +56,23 @@ $$
 EOF
 docker run -it -v $(pwd)/project:/project jcc rdrprep /project/rdrprep_template.jcl /project/outputjcl.ebcdic.jcl
 ```
+
+
+## Offset error in internal assembler
+
+If you get an error message like 
+
+```
+/project/hello.c:11: Offset error in internal assembler
+JCC-RC:1, Total Time:1ms
+```
+
+You'll need to run `jcc.exe` with WINE due to a bug in jcc. 
+
+Edit the Dockerfile and add the following in deploy section:
+
+```
+RUN dpkg --add-architecture i386 && apt-get update && apt-get install --no-install-recommends --assume-yes wine win32
+```
+
+Then to compile your code use `wine /jcc/jcc.exe -I/jcc/include -o test.c`
